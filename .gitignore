@@ -1,0 +1,30 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Sensitive Terraform variables
+*.tfvars
+*.tfvars.json
+
+# Python environment
+.checkov-venv/
+
+# Downloaded tools and installers
+/aws/
+/tflint
+/tflint.zip
+/session-manager-plugin.deb
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+main.tf.backup

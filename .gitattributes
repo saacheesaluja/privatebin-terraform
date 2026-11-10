@@ -1,0 +1,4 @@
+*.php text eol=crlf
+*.tf text eol=lf
+*.yml text eol=lf
+*.hcl text eol=lf
