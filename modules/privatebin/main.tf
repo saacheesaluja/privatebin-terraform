@@ -328,18 +328,18 @@ resource "aws_instance" "privatebin" {
 
     chmod 644 /opt/privatebin/conf.php
 
-    docker pull privatebin/s3:2.0.6
+    docker pull privatebin/s3:2.1.1
 
     docker run -d \
       --name privatebin \
       --restart unless-stopped \
       -p 3344:8080 \
       -v /opt/privatebin/conf.php:/srv/cfg/conf.php:ro \
-      privatebin/s3:2.0.6
+      privatebin/s3:2.1.1
   EOF
   , "\n", "\r\n")
 
-  user_data_replace_on_change = true
+  user_data_replace_on_change = false
   monitoring                  = true
 
   metadata_options {
@@ -363,7 +363,8 @@ resource "aws_instance" "privatebin" {
   lifecycle {
     ignore_changes = [
       tags["cg-mdatpkey"],
-      tags["cg-mdatpstatus"]
+      tags["cg-mdatpstatus"],
+      user_data
     ]
   }
 }
